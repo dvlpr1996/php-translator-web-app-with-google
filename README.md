@@ -1,8 +1,8 @@
-# Php Translate With Google
+# Php Translator Web Application With Google
 
 ## Description :
 
-translate text with with google
+Translate Text With Google
 
 
 ## Features :
