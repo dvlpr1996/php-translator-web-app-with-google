@@ -1,3 +1,72 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: UbuntuLight;
+  src: url('../fonts/Ubuntu-Light.ttf') format("TrueType");
+}
+
+@font-face {
+  font-family: UbuntuRegular;
+  src: url('../fonts/Ubuntu-Regular.ttf') format("TrueType");
+}
+
+@font-face {
+  font-family: UbuntuItalic;
+  src: url('../fonts/Ubuntu-Italic.ttf') format("TrueType");
+}
+
+@font-face {
+  font-family: UbuntuBold;
+  src: url('../fonts/Ubuntu-Bold.ttf') format("TrueType");
+}
+
+@layer base {
+  html {
+		@apply scroll-smooth font-['UbuntuRegular'];
+	}
+
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	::-webkit-scrollbar-track {
+		@apply bg-slate-800;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: #6d6b6b;
+		border-radius: 5px;
+	}
+
+	::selection {
+		@apply bg-indigo-600;
+	}
+
+  h1,
+	p,
+  .theme-toggle {
+		@apply capitalize text-slate-800 dark:text-slate-400;
+	}
+
+  body {
+    @apply px-4 text-base bg-slate-100 dark:bg-slate-900;
+  }
+
+  select {
+    @apply form-select p-2 w-full rounded-lg shadow-md secondary-bg dark:text-white
+    text-gray-700 border border-indigo-900;
+  }
+
+  textarea {
+    @apply form-textarea w-full rounded-lg shadow-md secondary-bg dark:text-white
+    text-gray-700 h-40 border border-indigo-900;
+  }
+}
+
+@layer utilities {
+  .secondary-bg {
+    @apply dark:bg-slate-800 bg-slate-50;
+  }
+}

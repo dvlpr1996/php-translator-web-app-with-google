@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <title>lorem</title>
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="owner" content="Nima jahan bakhshian | dvlpr1996">
+  <meta name="author" content="Nima jahan bakhshian | dvlpr1996">
+  <meta name="designer" content="Nima jahan bakhshian | dvlpr1996">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Php Translate With Google | dvlpr1996">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Php Translate With Google, tailwindCss, dvlpr1996, php8">
+  <!-- <link rel="icon" sizes="64X64" href="{{ asset('favicon.ico') }}"> -->
+  <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="../../../public/css/main.css">
+  <!-- [if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<![endif] -->
+</head>
+
+<body x-data="{ 'darkMode': true }" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode'));
+$watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)));">
+
+  <!-- container -->
+  <div class="max-w-6xl mx-auto" x-bind:class="{ 'dark': darkMode === true }">
+
+    <!-- nav bar -->
+    <nav class="flex justify-between items-center my-2 md:my-5">
+      <a href="#" class="text-4xl">
+        <i class="fas fa-language theme-toggle"></i>
+      </a>
+
+      <div>
+        <i class="fas text-2xl theme-toggle cursor-pointer" x-on:click="darkMode = !darkMode"
+          x-bind:class="darkMode ? 'fa-sun' : 'fa-moon'">
+        </i>
+      </div>
+    </nav>
+
+    <h1 class="md:text-6xl text-4xl text-center mt-5 md:mt-10">Php Translate With Google</h1>
+
+    <!-- main content -->
+    <main class="flex justify-between gap-0 md:gap-5 items-center flex-col md:flex-row mt-5 md:mt-20">
+
+      <!-- translate form -->
+      <div class="w-full md:w-6/12">
+        <form action="#" method="post" id="translate">
+          <div class="mb-3">
+            <select name="">
+              <option value="0">DETECT LANGUAGE</option>
+              <option value="">lorem</option>
+              <option value="">lorem</option>
+              <option value="">lorem</option>
+              <option value="">lorem</option>
+            </select>
+          </div>
+
+          <div class="my-3 relative">
+            <textarea name=""></textarea>
+            <span class="absolute dark:text-white text-slate-700 bottom-5 right-3 select-none"
+              title="Limit the number of letters">
+              0/5000
+            </span>
+          </div>
+        </form>
+      </div>
+
+      <div class="w-full md:w-6/12">
+        <div class="mb-3">
+          <select name="" form="translate">
+            <option value="0">DETECT LANGUAGE</option>
+            <option value="">lorem</option>
+            <option value="">lorem</option>
+            <option value="">lorem</option>
+            <option value="">lorem</option>
+          </select>
+        </div>
+
+        <div class="my-3 relative">
+          <textarea></textarea>
+
+          <a href="#"
+            class="absolute px-3 py-2 rounded-lg bg-blue-800 bottom-5 right-2 hover:bg-blue-600 dark:text-gray-100 text-white">
+            copy
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="md:absolute bottom-2 left-0 right-0 mb-2">
+      <p class="text-center text-lg">
+        © 2023
+        <a href="https://github.com/dvlpr1996/php-translate-with-google">
+          dvlpr1996/Php Translate With Google
+        </a>
+        . All Rights Reserved.
+      </p>
+    </footer>
+  </div>
+
+  <script src="../../js/input.js"></script>
+</body>
+
+</html>

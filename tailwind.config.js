@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    darkMode: 'class',
     content: [
         './resources/views/**/*.html'
     ],
@@ -16,5 +17,6 @@ module.exports = {
     },
     plugins: [
         require('tailwindcss-debug-screens'),
+        require('@tailwindcss/forms')
     ]
 }
