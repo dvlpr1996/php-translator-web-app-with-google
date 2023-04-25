@@ -63,10 +63,10 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
           </div>
 
           <div class="my-3 relative">
-            <textarea name=""></textarea>
+            <!-- main textarea -->
+            <textarea name="" id="mainTextarea" autofocus></textarea>
             <span class="absolute dark:text-white text-slate-700 bottom-5 right-3 select-none"
-              title="Limit the number of letters">
-              0/5000
+              title="Limit the number of letters" id="lettersLimiter">
             </span>
           </div>
         </form>
@@ -84,10 +84,10 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
         </div>
 
         <div class="my-3 relative">
-          <textarea></textarea>
+          <textarea id="textToCopy"></textarea>
 
           <a href="#"
-            class="absolute px-3 py-2 rounded-lg bg-blue-800 bottom-5 right-2 hover:bg-blue-600 dark:text-gray-100 text-white">
+            class="absolute px-3 py-2 rounded-lg bg-blue-800 bottom-5 right-2 hover:bg-blue-600 dark:text-gray-100 text-white" id="copyBtn" data-clipboard-target="#textToCopy">
             copy
           </a>
         </div>
@@ -105,6 +105,9 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
     </footer>
   </div>
 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js">
+  </script>
   <script src="../../js/input.js"></script>
 </body>
 
