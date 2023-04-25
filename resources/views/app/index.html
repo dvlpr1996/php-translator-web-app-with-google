@@ -53,12 +53,11 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
       <div class="w-full md:w-6/12">
         <form action="#" method="post" id="translate">
           <div class="mb-3">
-            <select name="">
+            <select name="" x-data="languageList()">
               <option value="0">DETECT LANGUAGE</option>
-              <option value="">lorem</option>
-              <option value="">lorem</option>
-              <option value="">lorem</option>
-              <option value="">lorem</option>
+              <template x-for="lang in language">
+                <option :value="lang.value" x-text="lang.lang"></option>
+              </template>
             </select>
           </div>
 
@@ -74,12 +73,11 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
       <div class="w-full md:w-6/12">
         <div class="mb-3">
-          <select name="" form="translate">
+          <select name="" x-data="languageList()">
             <option value="0">DETECT LANGUAGE</option>
-            <option value="">lorem</option>
-            <option value="">lorem</option>
-            <option value="">lorem</option>
-            <option value="">lorem</option>
+            <template x-for="lang in language">
+              <option :value="lang.value" x-text="lang.lang"></option>
+            </template>
           </select>
         </div>
 
@@ -87,7 +85,8 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
           <textarea id="textToCopy"></textarea>
 
           <a href="#"
-            class="absolute px-3 py-2 rounded-lg bg-blue-800 bottom-5 right-2 hover:bg-blue-600 dark:text-gray-100 text-white" id="copyBtn" data-clipboard-target="#textToCopy">
+            class="absolute px-3 py-2 rounded-lg bg-blue-800 bottom-5 right-2 hover:bg-blue-600 dark:text-gray-100 text-white"
+            id="copyBtn" data-clipboard-target="#textToCopy">
             copy
           </a>
         </div>
@@ -109,6 +108,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js">
   </script>
   <script src="../../js/input.js"></script>
+  <script src="../../js/data/languageList.js"></script>
 </body>
 
 </html>
