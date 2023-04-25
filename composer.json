@@ -1,0 +1,37 @@
+{
+    "name": "dvlpr1996/php-translator-web-app-with-google",
+    "description": "Translate Text With Google",
+    "keywords": [
+        "php",
+        "Translate",
+        "google"
+    ],
+    "homepage": "https://github.com/dvlpr1996/php-translator-web-app-with-google",
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Nima",
+            "email": "nimajahanbakhshian@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/dvlpr1996/php-translator-web-app-with-google/issues",
+        "source": "https://github.com/dvlpr1996/php-translator-web-app-with-google"
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        },
+        "files": [
+            "app/Helpers/helper.php"
+        ]
+    }
+}
