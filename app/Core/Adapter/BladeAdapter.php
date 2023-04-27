@@ -9,7 +9,7 @@ use Jenssegers\Blade\Blade;
 final class BladeAdapter
 {
 	private const VIEW_EXTENSION = '.blade.php';
-	private const  CACHE_TPL_PATH = CACHE_PATH . 'view/';
+	private const  CACHE_TPL_PATH = CACHE_PATH . 'views/';
 
 	private function load()
 	{

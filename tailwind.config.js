@@ -2,7 +2,7 @@
 module.exports = {
     darkMode: 'class',
     content: [
-        './resources/views/**/*.html'
+        './resources/views/**/*.blade.php'
     ],
     theme: {
         screens: {
