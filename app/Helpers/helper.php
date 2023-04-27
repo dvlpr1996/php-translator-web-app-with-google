@@ -27,3 +27,19 @@ if (!function_exists('view')) {
         return Blade::display($path, $data);
     }
 }
+
+if (!function_exists('displayError')) {
+    function displayError($msg)
+    {
+        echo "<pre style='color: #9c4100; background: #eee; z-index: 999; position: relative; padding: 10px; margin: 10px; border-radius: 5px; border-left: 3px solid #c56705;'>";
+        echo $msg;
+        echo "</pre>";
+    }
+}
+
+if (!function_exists('asset')) {
+    function asset(string $path)
+    {
+        return $path;
+    }
+}
