@@ -1,5 +1,8 @@
 <?php
 
+session_start();
+
+use app\Core\CsrfToken\Csrf;
 use app\Core\Adapter\DotEnvAdapter;
 use app\Core\Adapter\RouterAdapter;
 
@@ -21,3 +24,4 @@ ini_set('display_startup_errors', $_ENV['DISPLAY_STARTUP_ERRORS']);
 error_reporting($_ENV['ERROR_REPORTING']);
 
 $router = new RouterAdapter;
+

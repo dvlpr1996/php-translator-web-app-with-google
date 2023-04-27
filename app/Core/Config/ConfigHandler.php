@@ -16,7 +16,7 @@ final class ConfigHandler
         return explode('.', $key)[1];
     }
 
-    private function getData(string $key): string
+    private function getData(string $key)
     {
         $configKye = $this->configKeyResolver($key);
         $configFile = $this->configPathResolver($key);
@@ -38,7 +38,7 @@ final class ConfigHandler
         return $data[$configKye];
     }
 
-    public function get(string $key): array|string
+    public function get(string $key)
     {
         if (count(explode('.', $key)) === 1) {
             $data = require_once $this->configPathResolver($key);
