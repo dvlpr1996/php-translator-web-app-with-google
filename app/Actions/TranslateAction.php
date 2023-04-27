@@ -14,7 +14,7 @@ class TranslateAction extends BaseAction
     public function translate(Request $request)
     {
         // dd($this->allRequest($request));
-        // $validation = new Validation((new TranslateRequest), $this->allRequest($request));
-        // dd($validation->checkRules());
+        $validation = new Validation((new TranslateRequest), $this->allRequest($request));
+        dd($validation->checkRules());
     }
 }
