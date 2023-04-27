@@ -30,7 +30,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
 				<!-- nav bar -->
 				<nav class="my-2 flex items-center justify-between md:my-5">
-						<a href="#" class="text-4xl">
+						<a href="{{ route('home') }}" class="text-4xl">
 								<i class="fas fa-language theme-toggle"></i>
 						</a>
 
@@ -50,10 +50,10 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
 						<!-- translate form -->
 						<div class="w-full md:w-6/12">
-								<form action="#" method="post" id="translate">
+								<form action="{{ route('translate') }}" method="post" id="translate">
 										<div class="mb-3">
-												<select name="" x-data="languageList()">
-														<option value="0">DETECT LANGUAGE</option>
+												<select name="translateFROM" x-data="languageList()">
+														<option value="ndLang">DETECT LANGUAGE</option>
 														<template x-for="lang in language">
 																<option :value="lang.value" x-text="lang.lang"></option>
 														</template>
@@ -62,7 +62,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
 										<div class="relative my-3">
 												<!-- main textarea -->
-												<textarea name="" id="mainTextarea" autofocus></textarea>
+												<textarea name="mainText" id="mainTextarea" autofocus></textarea>
 												<span class="absolute bottom-5 right-3 select-none text-slate-700 dark:text-white"
 														title="Limit the number of letters" id="lettersLimiter">
 												</span>
@@ -72,8 +72,8 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 
 						<div class="w-full md:w-6/12">
 								<div class="mb-3">
-										<select name="" x-data="languageList()">
-												<option value="0">DETECT LANGUAGE</option>
+										<select name="translateTo" x-data="languageList()" form="translate">
+												<option value="ndLang">DETECT LANGUAGE</option>
 												<template x-for="lang in language">
 														<option :value="lang.value" x-text="lang.lang"></option>
 												</template>
@@ -81,14 +81,15 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 								</div>
 
 								<div class="relative my-3">
-										<textarea id="textToCopy"></textarea>
+										<textarea id="textToCopy" name="translatedText"></textarea>
 
-										<a href="#"
-												class="absolute bottom-5 right-2 rounded-lg bg-blue-800 px-3 py-2 text-white hover:bg-blue-600 dark:text-gray-100"
-												id="copyBtn" data-clipboard-target="#textToCopy">
+										<a href="#" class="btn absolute bottom-5 right-2" id="copyBtn" data-clipboard-target="#textToCopy">
 												copy
 										</a>
 								</div>
+						</div>
+						<div>
+								<button type="submit" form="translate" class="btn">send</button>
 						</div>
 				</main>
 
@@ -102,7 +103,6 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 						</p>
 				</footer>
 		</div>
-
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
 		<script src="{{ asset('js/input.js') }}"></script>

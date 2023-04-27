@@ -12,8 +12,8 @@ mainTextarea.addEventListener('keypress', (e) => {
     mainTextarea.addEventListener("input", () => {
         lettersLimiter.textContent = mainTextarea.value.trim().length;
     });
-    if (mainTextarea.value.trim().length >= 5) {
-        alert("you can not write more than 5000 letters");
+    if (mainTextarea.value.trim().length >= 500) {
+        alert("you can not write more than 500 letters");
         e.preventDefault();
     }
 });

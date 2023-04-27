@@ -44,7 +44,7 @@ class RouterAdapter
         return $this->router->run();
     }
 
-    private function dispatch404()
+    public function dispatch404()
     {
         return $this->router->notFound(function () {
             header("HTTP/1.0 404 Not Found");
@@ -56,7 +56,7 @@ class RouterAdapter
     private function displayError()
     {
         return $this->router->error(function (Request $request, Response $response, \Exception $e) {
-            displayError($e->getMessage());
+            displayError($e->getMessage() . ' ' . $e->getLine());
             die;
         });
     }

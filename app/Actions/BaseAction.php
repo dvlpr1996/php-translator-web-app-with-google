@@ -24,6 +24,11 @@ class BaseAction extends Action
         return $request->request->get($item);
     }
 
+    protected function has(Request $request, string $item): bool
+    {
+        return $request->request->has($item);
+    }
+
     protected function file(Request $request, string $item)
     {
         return $request->files->get($item);

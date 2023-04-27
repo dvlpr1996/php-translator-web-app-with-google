@@ -43,3 +43,17 @@ if (!function_exists('asset')) {
         return $path;
     }
 }
+
+if (!function_exists('route')) {
+    function route(string $path)
+    {
+        global $router;
+        foreach ($router->getAllRoutes() as $route) {
+            if (trim($path) === $route['name']) {
+                return BASE_URL . $route['route'];
+            }
+            break;
+        }
+        return $router->dispatch404();
+    }
+}
