@@ -51,6 +51,7 @@ $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(valu
 						<!-- translate form -->
 						<div class="w-full md:w-6/12">
 								<form action="{{ route('translate') }}" method="post" id="translate">
+                    {{ csrfTokenInput() }}
 										<div class="mb-3">
 												<select name="translateFROM" x-data="languageList()">
 														<option value="ndLang">DETECT LANGUAGE</option>

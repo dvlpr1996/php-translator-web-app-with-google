@@ -6,7 +6,7 @@ use app\Core\Facades\Blade;
 use app\Core\Facades\Config;
 
 if (!function_exists('config')) {
-    function config(string $key): array|string
+    function config(string $key)
     {
         return Config::get($key);
     }
@@ -24,7 +24,17 @@ if (!function_exists('checkFileExists')) {
 if (!function_exists('view')) {
     function view(string $path, array $data = [])
     {
+        global $csrf;
+        $csrf->createCsrfToken();
         return Blade::display($path, $data);
+    }
+}
+
+if (!function_exists('csrfTokenInput')) {
+    function csrfTokenInput()
+    {
+        global $csrf;
+        return $csrf->csrfTokenInput();
     }
 }
 
