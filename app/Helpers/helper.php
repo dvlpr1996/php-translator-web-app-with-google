@@ -71,7 +71,6 @@ if (!function_exists('route')) {
             if (trim($path) === $route['name']) {
                 return BASE_URL . $route['route'];
             }
-            break;
         }
         return $router->dispatch404();
     }

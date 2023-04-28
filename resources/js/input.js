@@ -8,8 +8,8 @@ window.addEventListener("load", () => {
 let mainTextarea = document.querySelector('#mainTextarea');
 let lettersLimiter = document.querySelector('#lettersLimiter');
 
-mainTextarea.addEventListener('keypress', (e) => {
-    mainTextarea.addEventListener("input", () => {
+mainTextarea?.addEventListener('keypress', (e) => {
+    mainTextarea?.addEventListener("input", () => {
         lettersLimiter.textContent = mainTextarea.value.trim().length;
     });
     if (mainTextarea.value.trim().length >= 500) {
