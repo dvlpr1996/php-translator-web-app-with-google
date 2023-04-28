@@ -4,12 +4,22 @@ declare(strict_types=1);
 
 use app\Core\Facades\Blade;
 use app\Core\Facades\Config;
+use app\Exceptions\ConfigKeyNotFoundException;
+use app\Exceptions\ConfigFileNotFoundException;
 use app\Exceptions\ViewFileDoesNotExistsException;
 
 if (!function_exists('config')) {
     function config(string $key)
     {
-        return Config::get($key);
+        try {
+            return Config::get($key);
+        } catch (ConfigFileNotFoundException $e) {
+            displayError($e->getMessage());
+        } catch (ConfigKeyNotFoundException $e) {
+            displayError($e->getMessage());
+        } catch (Exception $e) {
+            displayError($e->getMessage());
+        }
     }
 }
 
