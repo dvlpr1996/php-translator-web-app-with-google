@@ -40,7 +40,7 @@ class RouterAdapter
     public function runRouter()
     {
         $this->dispatch404();
-        $this->displayError();
+        // $this->displayError();
         return $this->router->run();
     }
 

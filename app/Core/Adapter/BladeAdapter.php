@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\Core\Adapter;
 
 use Jenssegers\Blade\Blade;
+use app\Exceptions\ViewFileDoesNotExistsException;
 
 final class BladeAdapter
 {
@@ -21,8 +22,9 @@ final class BladeAdapter
 
 	private function renderView(string $viewPath, array $viewData = [])
 	{
-		if (!checkFileExists($this->generateViewPath($viewPath)))
-			throw new \Exception($viewPath . ' does not exists');
+		if (!checkFileExists($this->generateViewPath($viewPath))) {
+			throw new ViewFileDoesNotExistsException($viewPath . ' View File Does Not Exists');
+        }
 
 		echo $this->load()->render($viewPath,  $viewData);
 	}
