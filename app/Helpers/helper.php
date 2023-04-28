@@ -48,7 +48,7 @@ if (!function_exists('displayError')) {
 }
 
 if (!function_exists('asset')) {
-    function asset(string $path)
+    function asset(string $path): string
     {
         return $path;
     }

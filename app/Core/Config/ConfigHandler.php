@@ -28,7 +28,7 @@ final class ConfigHandler
         $data = require_once $configFile;
 
         if (!is_array($data)) {
-            die('is_array');
+            die('is not array');
         }
 
         if (!array_key_exists($configKye, $data)) {

@@ -6,15 +6,14 @@ namespace app\Core\CsrfToken;
 
 class Csrf
 {
-    private $key;
-    private $keyExpire;
+    private int $key;
+    private int $keyExpire;
 
     public function __construct()
     {
-        // $this->key = config('csrfToken.token_len');
-        $this->key = 32;
-        $this->keyExpire = time() + 1800;
-        // $this->keyExpire = config('csrfToken.token_expire_time');
+        $config = config('csrfToken');
+        $this->key = $config['token_len'];
+        $this->keyExpire = $config['token_expire_time'];
     }
 
     public function csrfTokenInput()
