@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use app\Core\Facades\Blade;
 use app\Core\Facades\Config;
+use app\Core\FlashMessage\FlashMessage;
 use app\Exceptions\ConfigKeyNotFoundException;
 use app\Exceptions\ConfigFileNotFoundException;
 use app\Exceptions\ViewFileDoesNotExistsException;
@@ -83,5 +84,20 @@ if (!function_exists('route')) {
             }
         }
         return $router->dispatch404();
+    }
+}
+
+if (!function_exists('back')) {
+    function back(int $response_code = 0)
+    {
+        header('Location: ' . $_SERVER['HTTP_REFERER'], response_code: $response_code);
+    }
+}
+
+if (!function_exists('backWithMsg')) {
+    function backWithMsg(string $key, string $value, int $response_code = 0)
+    {
+        FlashMessage::set($key, $value);
+        back($response_code);
     }
 }
