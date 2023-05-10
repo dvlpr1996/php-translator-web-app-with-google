@@ -13,6 +13,12 @@
 						Php Translator Web App With Google
 				</h1>
 
+				<!-- show form error -->
+				<div class="mt-5 w-full md:w-6/12 mx-auto">
+						@component('errors')
+						@endcomponent
+				</div>
+
 				<!-- main content -->
 				<main class="mt-5 flex flex-col items-center justify-between gap-0 md:mt-20 md:flex-row md:gap-5">
 
@@ -39,6 +45,7 @@
 								</form>
 						</div>
 
+						<!-- translate to -->
 						<div class="w-full md:w-6/12">
 								<div class="mb-3">
 										<select name="translateTo" x-data="languageList()" form="translate">
@@ -50,7 +57,9 @@
 								</div>
 
 								<div class="relative my-3">
-										<textarea id="textToCopy" name="translatedText"></textarea>
+										<textarea id="textToCopy" name="translatedText" readonly>
+                      {{ $translated ?? '' }}
+                    </textarea>
 
 										<a href="#" class="btn absolute bottom-5 right-2" id="copyBtn" data-clipboard-target="#textToCopy">
 												copy

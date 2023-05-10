@@ -4,6 +4,9 @@ window.addEventListener("load", () => {
     });
 });
 
+let textToCopy = document.querySelector('#textToCopy');
+textToCopy.attributes('readonly', true);
+
 // letters Limiter counter
 let mainTextarea = document.querySelector('#mainTextarea');
 let lettersLimiter = document.querySelector('#lettersLimiter');
@@ -21,11 +24,11 @@ mainTextarea?.addEventListener('keypress', (e) => {
 // ClipboardJS
 let clipboard = new ClipboardJS('#copyBtn');
 
-clipboard.on('success', function(e) {
+clipboard.on('success', function (e) {
     alert('text copied');
     e.clearSelection();
 });
 
-clipboard.on('error', function(e) {
+clipboard.on('error', function (e) {
     alert('something went wrong try it later');
 });
