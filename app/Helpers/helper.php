@@ -7,6 +7,7 @@ use app\Core\Facades\Config;
 use app\Core\FlashMessage\FlashMessage;
 use app\Exceptions\ConfigKeyNotFoundException;
 use app\Exceptions\ConfigFileNotFoundException;
+use app\Exceptions\SessionKeyNotFoundException;
 use app\Exceptions\ViewFileDoesNotExistsException;
 
 if (!function_exists('config')) {
@@ -94,10 +95,31 @@ if (!function_exists('back')) {
     }
 }
 
-if (!function_exists('backWithMsg')) {
-    function backWithMsg(string $key, string $value, int $response_code = 0)
+// flash message helpers
+if (!function_exists('session')) {
+    function getSession(string $key)
+    {
+        if (!empty(FlashMessage::get($key)) && FlashMessage::get($key)) {
+            return FlashMessage::get($key);
+        }
+        return [];
+    }
+}
+
+if (!function_exists('setSession')) {
+    function setSession(string $key, array|string $value)
     {
         FlashMessage::set($key, $value);
-        back($response_code);
+    }
+}
+
+if (!function_exists('delSession')) {
+    function delSession(string $key)
+    {
+        try {
+            FlashMessage::clear($key);
+        } catch (SessionKeyNotFoundException $e) {
+            displayError($e->getMessage());
+        }
     }
 }

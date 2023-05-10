@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\Core\Validation\Rules\Trait;
+namespace app\Core\Validation\Rules\Traits;
 
 trait RulesTrait
 {
@@ -16,8 +16,19 @@ trait RulesTrait
         return $val;
     }
 
-    private function rmExtraBlank(string $string): string
+    protected function rmExtraBlank(string $string): string
     {
         return preg_replace('/\s+/im', ' ', trim($string));
+    }
+
+    protected function errorMsg(string $val, string $msg): void
+    {
+        $errorMsg = str_replace(':filed', $val, $msg);
+        setSession('error', [$errorMsg]);
+    }
+
+    protected function regexStringCheck($val): bool
+    {
+        return preg_match('/^[\pL\pM]+$/u', $val) ? true : false;
     }
 }

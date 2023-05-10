@@ -8,8 +8,13 @@ use app\Core\Validation\Rules\Contract\AbstractRules;
 
 class Min extends AbstractRules
 {
-    public function check($val, $param = null): bool
+    public $msg = 'the minimum length of :filed must be :min';
+    public function check($val, $param = null):bool
     {
-        return (strlen($val) <= $param) ? false : true;
+        if (strlen($val) <= $param) {
+            $this->errorMsg($val, $this->msg);
+            return false;
+        }
+        return true;
     }
 }

@@ -8,8 +8,13 @@ use app\Core\Validation\Rules\Contract\AbstractRules;
 
 class Not extends AbstractRules
 {
-    public function check($val, $param = null): bool
+    public $msg = ':filed can not be :not';
+    public function check($val, $param = null):bool
     {
-        return ($val === $param) ? false : true;
+        if ($val === $param) {
+            $this->errorMsg($val, $this->msg);
+            return false;
+        }
+        return true;
     }
 }
