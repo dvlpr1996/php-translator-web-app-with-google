@@ -21,7 +21,7 @@ class BaseAction extends Action
 
     protected function get(Request $request, string $item): string
     {
-        return $request->request->get($item);
+        return $request->get($item);
     }
 
     protected function has(Request $request, string $item): bool
