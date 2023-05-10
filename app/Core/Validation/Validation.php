@@ -20,7 +20,9 @@ class Validation
     {
         foreach ($this->rules->rules() as $key => $rules) {
             $value = $this->data[$key];
-            if (!$this->getRules($rules, $value)) return false;
+            if (!$this->getRules($rules, $value)) {
+                return false;
+            }
         }
         return true;
     }
@@ -40,7 +42,6 @@ class Validation
                 return false;
             }
         }
-
         return true;
     }
 
